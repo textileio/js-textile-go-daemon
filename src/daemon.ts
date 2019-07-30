@@ -1,4 +1,4 @@
-import { Textile, TextileOptions } from '@textile/js-http-client'
+import { Textile } from '@textile/js-http-client'
 import fs from 'fs-extra'
 import debug from 'debug'
 import path from 'path'
