@@ -1,0 +1,73 @@
+{
+  "name": "@textile/go-daemon",
+  "version": "0.0.1",
+  "description": "Spawn and control the Textile daemon from Node/Javascript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "browser": {
+    "./dist/utils/run.js": false
+  },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest --no-watchman --config jest.config.json",
+    "lint": "eslint --fix --ext .mjs,.js,.jsx,.ts,.tsx src && echo 'Lint complete.'",
+    "preversion": "npm run lint",
+    "postversion": "git push --follow-tags"
+  },
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 3.0.0",
+    "yarn": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/textileio/js-textile-go-daemon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/textileio/js-textile-go-daemon/issues"
+  },
+  "keywords": [
+    "textile",
+    "install",
+    "IPFS",
+    "binary"
+  ],
+  "author": "textile.io",
+  "license": "MIT",
+  "dependencies": {
+    "@textile/js-http-client": "^1.0.0",
+    "@textile/wallet": "^0.2.1",
+    "debug": "^4.1.1",
+    "fs-extra": "^8.1.0",
+    "execa": "^2.0.3",
+    "hat": "0.0.3",
+    "typescript": "^3.5.3",
+    "url-parse": "^1.4.7"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.4",
+    "@types/fs-extra": "^8.0.0",
+    "@types/url-parse": "^1.4.3",
+    "@types/hat": "0.0.0",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^12.6.8",
+    "rimraf": "^2.6.3",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "jest-cli": "^24.5.0",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^8.8.2",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^5.4.4"
+  }
+}

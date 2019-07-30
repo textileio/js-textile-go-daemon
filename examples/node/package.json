@@ -1,0 +1,22 @@
+{
+  "name": "test-go-daemon",
+  "version": "0.0.0",
+  "description": "Test test test",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "prepare": "npm run build",
+    "build": "tsc",
+    "start": "node dist/examples/node/index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@textile/go-daemon": "../..",
+    "@textile/go-textile-dep": "~0.6.5",
+    "@textile/js-http-client": "^1.0.0",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.3"
+  }
+}
