@@ -1,7 +1,7 @@
 import path from 'path'
 import Wallet from '@textile/wallet'
 import Daemon, { InitOptions, StartOptions } from './daemon'
-
+export * from '@textile/js-http-client'
 export { default as Daemon } from './daemon'
 
 const defaultOptions = {
@@ -54,8 +54,8 @@ export class DaemonFactory {
       const seed = opts.initOpts
         ? opts.initOpts.seed
         : Wallet.fromEntropy()
-            .accountAt(0)
-            .keypair.secret()
+          .accountAt(0)
+          .keypair.secret()
       try {
         await node.init(seed, opts.initOpts)
       } catch (err) {
