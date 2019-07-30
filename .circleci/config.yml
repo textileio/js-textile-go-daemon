@@ -27,17 +27,6 @@ jobs:
                 key: node-v1-{{ checksum "package.json" }}-{{ arch }}
                 paths:
                     - node_modules
-            # - run:
-            #     name: test
-            #     command: |
-            #         mkdir -p test-results/jest
-            #         npm run test
-            #     environment:
-            #         JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
-            # - store_test_results:
-            #     path: test-results
-            # - store_artifacts:
-            #     path: test-results
     deploy:
         <<: *defaults
         steps:
