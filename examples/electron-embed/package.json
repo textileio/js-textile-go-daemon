@@ -1,0 +1,22 @@
+{
+  "name": "electron-embed",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder -c.asarUnpack=**/node_modules/@textile/go-textile-dep/**/*",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "dependencies": {
+    "@textile/go-daemon": "../..",
+    "@textile/go-textile-dep": "^0.6.5",
+    "source-map-support": "^0.5.12"
+  },
+  "devDependencies": {
+    "electron": "5.0.6",
+    "electron-builder": "^21.0.11",
+    "electron-webpack": "^2.7.4",
+    "webpack": "~4.35.3"
+  }
+}
