@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import debug from 'debug'
 import path from 'path'
 import URL from 'url-parse'
-import { ExecaError, ExecaChildProcess } from 'execa'
+import { ExecaChildProcess } from 'execa'
 import { tempDir, find, run } from './utils'
 
 // const multiaddr from 'multiaddr'
