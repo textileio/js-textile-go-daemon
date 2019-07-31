@@ -20,14 +20,6 @@ const GRACE_PERIOD = 10500
 // Amount of ms to wait before sigkill for non disposable repos
 const NON_DISPOSABLE_GRACE_PERIOD = 10500 * 3
 
-function translateError(err: ExecaError) {
-  // Get the actual error message to be the err.message
-  let message = err.message
-  err.message = err.stderr
-  err.stderr = message
-  throw err
-}
-
 export interface StartOptions {
   debug?: boolean
   repoPath?: string
@@ -148,7 +140,7 @@ class Daemon {
     // Add 'extra' commandline args
     args = args.concat(flags || [])
 
-    await run(this, args, { env: this.env }).catch(translateError)
+    await run(this, args, { env: this.env })
     this.clean = false
     this.initialized = true
     return this
@@ -241,7 +233,7 @@ class Daemon {
       })
 
       try {
-        await this.subprocess.catch(translateError)
+        await this.subprocess
       } catch (err) {
         reject(err)
       }
@@ -314,9 +306,7 @@ class Daemon {
    * Get the version of ipfs
    */
   async version() {
-    const result = await run(this, ['version'], {
-      env: this.env,
-    }).catch(translateError)
+    const result = await run(this, ['version'], { env: this.env })
     return result ? result.stdout.trim() : 'unknown'
   }
 }

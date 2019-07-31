@@ -7,16 +7,14 @@ const find = (rootPath: string) => {
   const depPath = path.join('@textile', 'go-textile-dep', 'binary', isWindows ? 'textile.exe' : 'textile')
 
   let appRoot = rootPath ? path.join(rootPath, '..') : process.cwd()
-  // If inside <appname>.asar try to load from .asar.unpacked
-  // this only works if asar was built with
-  // asar --unpack-dir=node_modules/go-textile-dep/* (not tested)
-  // or
-  // electron-packager ./ --asar.unpackDir=node_modules/go-textile-dep
+  // If inside app.asar try to load from app.asar.unpacked
+  // This only works if the app asar was built with something like:
+  // electron-builder ./ -c.asarUnpack=**/node_modules/@textile/go-textile-dep
   if (appRoot.includes(`.asar${path.sep}`)) {
     appRoot = appRoot.replace(`.asar${path.sep}`, `.asar.unpacked${path.sep}`)
   }
-  const npm3Path = path.join(appRoot, '../', depPath)
-  const npm2Path = path.join(appRoot, 'node_modules', depPath)
+  const npm3Path = path.join(appRoot, '..', '..', depPath)
+  const npm2Path = path.join(appRoot, '..', 'node_modules', depPath)
 
   if (fs.existsSync(npm3Path)) {
     return npm3Path

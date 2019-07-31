@@ -59,7 +59,7 @@ export class DaemonFactory {
       try {
         await node.init(seed, opts.initOpts)
       } catch (err) {
-        throw new Error('Unable to initialize node. Does the path exist?')
+        throw new Error(`Unable to initialize node: ${err.toString()}`)
       }
     }
 
@@ -67,7 +67,7 @@ export class DaemonFactory {
       try {
         await node.start(opts.startOpts)
       } catch (err) {
-        throw new Error('Unable to start node. Was the repo properly initialized?')
+        throw new Error(`Unable to start node: ${err.toString()}`)
       }
     }
 
