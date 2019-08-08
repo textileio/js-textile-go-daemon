@@ -98,7 +98,7 @@ class Daemon {
     }
     if (this.repoPath) {
       args.push('--repo')
-      args.push(`"${path.resolve(this.repoPath)}"`)
+      args.push(path.resolve(this.repoPath))
     }
     if (opts.server) {
       args.push('--server')
@@ -189,7 +189,7 @@ class Daemon {
     }
     if (this.repoPath) {
       args.push('--repo')
-      args.push(`"${path.resolve(this.repoPath)}"`)
+      args.push(path.resolve(this.repoPath))
     }
     if (opts.serveDocs) {
       args.push('--serve-docs')
