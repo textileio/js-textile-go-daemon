@@ -13,6 +13,15 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=popout-square)](https://github.com/RichardLitt/standard-readme)
 [![docs](https://img.shields.io/badge/docs-master-success.svg?style=popout-square)](https://textileio.github.io/js-textile-go-daemon/)
 
+---
+**Deprecation Warning**
+
+Textile Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the [go-textile-threads repo](https://github.com/textileio/go-textile-threads) and the [early preview](https://paper.dropbox.com/doc/Threads-v2-Early-Preview-X8fKsMiTyztuQ1L8CnUng). 
+
+Until Threads v2 release, this repo should be used for experimental purposes only.
+
+---
+
 > Spawn and control the Textile daemon from Node/Javascript
 
 Join us on our [public Slack channel](https://slack.textile.io/) for news, discussions, and status updates.
